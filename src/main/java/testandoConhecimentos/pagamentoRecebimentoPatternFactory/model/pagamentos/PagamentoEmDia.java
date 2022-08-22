@@ -4,7 +4,7 @@ import testandoConhecimentos.pagamentoRecebimentoPatternFactory.model.PagamentoM
 
 import java.math.BigDecimal;
 
-public class PagamentoEmDia implements PagamentosFactory {
+public class PagamentoEmDia implements CalculoDePagamentos {
 
     @Override
     public BigDecimal calculoDePagamentos(PagamentoModel pagamentoModel) {

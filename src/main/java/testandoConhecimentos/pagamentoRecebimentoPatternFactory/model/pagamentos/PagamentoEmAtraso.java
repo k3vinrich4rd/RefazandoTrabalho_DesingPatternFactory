@@ -4,7 +4,7 @@ import testandoConhecimentos.pagamentoRecebimentoPatternFactory.model.PagamentoM
 
 import java.math.BigDecimal;
 
-public class PagamentoEmAtraso implements PagamentosFactory {
+public class PagamentoEmAtraso implements CalculoDePagamentos {
     @Override
     public BigDecimal calculoDePagamentos(PagamentoModel pagamentoModel) {
         return pagamentoModel.getValorDoPagamento().add(new BigDecimal(String.valueOf(pagamentoModel.getDescontoTaxa())));

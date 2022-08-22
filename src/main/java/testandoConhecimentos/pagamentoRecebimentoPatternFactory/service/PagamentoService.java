@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import testandoConhecimentos.pagamentoRecebimentoPatternFactory.model.PagamentoModel;
 import testandoConhecimentos.pagamentoRecebimentoPatternFactory.model.pagamentos.PagamentoFactory;
-import testandoConhecimentos.pagamentoRecebimentoPatternFactory.model.pagamentos.PagamentosFactory;
 import testandoConhecimentos.pagamentoRecebimentoPatternFactory.repository.PagamentoRepository;
 
 import java.math.BigDecimal;
@@ -25,7 +24,7 @@ public class PagamentoService {
         return pagamentoRepository.findById(id);
     }
 
-    public PagamentoModel cadastrarPagamentos(PagamentoModel pagamentoModel, PagamentosFactory pagamentosFactory) {
+    public PagamentoModel cadastrarPagamentos(PagamentoModel pagamentoModel, PagamentoFactory pagamentoFactory) {
         //Conectando u utilizando métodos das classes pagamentoModel e pagamentoFactory
         BigDecimal resultado = PagamentoFactory.tipoDePagamento(pagamentoModel.getStatusDoPagamento()).calculoDePagamentos(pagamentoModel);
         pagamentoModel.setValorPago(resultado); // Valor que será pago sendo definido pelo sistema

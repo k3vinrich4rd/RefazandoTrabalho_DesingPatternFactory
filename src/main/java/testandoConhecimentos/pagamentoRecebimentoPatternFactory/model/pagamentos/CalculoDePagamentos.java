@@ -4,7 +4,7 @@ import testandoConhecimentos.pagamentoRecebimentoPatternFactory.model.PagamentoM
 
 import java.math.BigDecimal;
 
-public interface PagamentosFactory {
+public interface CalculoDePagamentos {
     public BigDecimal calculoDePagamentos(PagamentoModel pagamentoModel);
 
 }
