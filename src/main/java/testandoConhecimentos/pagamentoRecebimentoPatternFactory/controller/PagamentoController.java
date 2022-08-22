@@ -13,30 +13,30 @@ import java.util.Optional;
 @RequestMapping(path = "/pagamentos")
 public class PagamentoController {
 
-    @Autowired
+    @Autowired // Injeção de dependência
     private PagamentoService pagamentoService;
 
-    @PostMapping
+    @PostMapping // Para cadastrar
     public PagamentoModel cadastrarNovosPagamentos(@RequestBody PagamentoModel pagamentoModel, PagamentoFactory pagamentoFactory) {
         return pagamentoService.cadastrarPagamentos(pagamentoModel, pagamentoFactory);
     }
 
-    @GetMapping
+    @GetMapping // Para exibir os pagamentos
     public List<PagamentoModel> exibirPagamentosCadastrados() {
         return pagamentoService.exibirPagamentos();
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/{id}") // Para exibir os pagamentos via id
     public Optional<PagamentoModel> exibirPagamentosViaId(@PathVariable Long id) {
         return pagamentoService.exibirPagamentoViaId(id);
     }
 
-    @PutMapping(path = "/{id}")
+    @PutMapping(path = "/{id}") //Para alterar pagamentos cadastrados
     public PagamentoModel alterarPagamentosCadastrados(@RequestBody PagamentoModel pagamentoModel, PagamentoFactory pagamentoFactory) {
         return pagamentoService.alterarPagamentos(pagamentoModel, pagamentoFactory);
     }
 
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}") // Para deletar pagamentos cadastrados
     public void deletarPagamentosCadastrados(@PathVariable Long id) {
         pagamentoService.deletarPagamento(id);
     }

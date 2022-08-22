@@ -4,9 +4,10 @@ import testandoConhecimentos.pagamentoRecebimentoPatternFactory.model.PagamentoM
 
 import java.math.BigDecimal;
 
-public class PagamentoEmDia implements CalculoDePagamentos {
+public class PagamentoEmDia implements CalculoDePagamentos { // Implementação da interface
 
-    @Override
+    //Polimorfismo
+    @Override//Lógica por trás da classe
     public BigDecimal calculoDePagamentos(PagamentoModel pagamentoModel) {
                                                                             //String — conversão de valores
         return pagamentoModel.getValorDoPagamento().subtract(new BigDecimal(String.valueOf(pagamentoModel.getDescontoTaxa())));

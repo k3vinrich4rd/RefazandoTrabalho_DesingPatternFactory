@@ -10,20 +10,22 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Service // lógica do projeto
 public class PagamentoService {
 
-    @Autowired
+    @Autowired // Injeção dependência
     private PagamentoRepository pagamentoRepository;
 
+
     public List<PagamentoModel> exibirPagamentos() {
-        return pagamentoRepository.findAll();
+        return pagamentoRepository.findAll(); //Exibir pagamentos cadastrados
     }
 
     public Optional<PagamentoModel> exibirPagamentoViaId(Long id) {
-        return pagamentoRepository.findById(id);
+        return pagamentoRepository.findById(id); // Exibir pagamentos cadastrados via id
     }
 
+    //Cadastrar pagamentos
     public PagamentoModel cadastrarPagamentos(PagamentoModel pagamentoModel, PagamentoFactory pagamentoFactory) {
         //Conectando u utilizando métodos das classes pagamentoModel e pagamentoFactory
         BigDecimal resultado = PagamentoFactory.tipoDePagamento(pagamentoModel.getStatusDoPagamento()).calculoDePagamentos(pagamentoModel);
@@ -33,6 +35,8 @@ public class PagamentoService {
         return pagamentoRepository.save(pagamentoModel);
     }
 
+
+    //Alterar pagamentos
     public PagamentoModel alterarPagamentos(PagamentoModel pagamentoModel, PagamentoFactory pagamentoFactory) {
         //Conectando u utilizando métodos das classes pagamentoModel e pagamentoFactory
         BigDecimal resultado = PagamentoFactory.tipoDePagamento(pagamentoModel.getStatusDoPagamento()).calculoDePagamentos(pagamentoModel);
@@ -41,6 +45,7 @@ public class PagamentoService {
         return pagamentoRepository.save(pagamentoModel);
     }
 
+    //Deletar pagamentos
     public void deletarPagamento(Long id) {
         pagamentoRepository.deleteById(id);
     }
