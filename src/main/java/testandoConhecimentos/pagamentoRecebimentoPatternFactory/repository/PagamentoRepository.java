@@ -1,0 +1,2 @@
+package testandoConhecimentos.pagamentoRecebimentoPatternFactory.repository;public interface PagamentoRepository {
+}
