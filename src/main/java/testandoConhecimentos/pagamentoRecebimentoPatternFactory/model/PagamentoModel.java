@@ -1,12 +1,16 @@
 package testandoConhecimentos.pagamentoRecebimentoPatternFactory.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-@Data // Getter, Setter e Construtores
+@Data // Getter e Setter
 @Entity // Entidade — identifica ser uma tabela
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "registro_de_pagamento") // Tabela que será criada
 public class PagamentoModel {
 
